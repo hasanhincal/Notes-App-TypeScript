@@ -21,8 +21,26 @@ type Props = {
 const MainPage = ({ notes, availableTags }: Props) => {
   const [title, setTitle] = useState<string>("");
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
-  console.log(title);
-  console.log(selectedTags);
+  /*
+   * 1- Not bşlığı 1. inputta aratılan metni içermelidir.
+   *  - Not'un başlığının küçük harfe çevrilmiş hali aratılan metnin
+   *  küçük harfe çevrilmiş halini içeriyorsa koşul sağlanır.
+   *
+   * &&
+   *
+   * 2- 2.input ile seçilen etiketler not'un içerisindeki etiketler ile birebir eşleşmeli
+   * seçilen etiketler dizisindeki herbir etiket için note'a ait etiketler arasında
+   * eşleşme kontrolü yapıcaz.
+   *
+   */
+  const filtredNotes = notes.filter(
+    (note) =>
+      note.title.toLowerCase().includes(title.toLowerCase()) &&
+      selectedTags.every((s_tag) =>
+        note.tags.some((note_tag) => note_tag.value === s_tag.value)
+      )
+  );
+
   return (
     <div className="container py-5 mx-auto">
       {/* üst kısım */}
@@ -59,7 +77,7 @@ const MainPage = ({ notes, availableTags }: Props) => {
       </Form>
       {/* not listesi  */}
       <Row xs={1} sm={2} md={3} lg={4} className="mt-4 g-4">
-        {notes.map((note) => (
+        {filtredNotes?.map((note) => (
           <Col key={note.id}>
             <CostumCard note={note} />
           </Col>
@@ -70,3 +88,17 @@ const MainPage = ({ notes, availableTags }: Props) => {
 };
 
 export default MainPage;
+
+//? every & some metodları kullanımı:
+
+// const arr = [5, 8, 9, 7, 6];
+
+//* dizideki herbir elemanın kontrolünü yapar ve true veya false döner.
+
+// const answer1 = arr.every((num) => num > 5); // false dizide dizideki bütün elemanlar 5 ten büyük değil
+
+//* dizideki elemankardan en az bir tanesi istenen koşulu sağlarsa true döner.
+
+// const answer2 = arr.some((num) => num > 8); // true dizideki en az bir eleman 8'den büyük.
+// console.log("every: ", answer1);
+// console.log("some: ", answer2);

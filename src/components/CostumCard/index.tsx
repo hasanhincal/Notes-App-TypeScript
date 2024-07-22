@@ -1,11 +1,16 @@
 import { Badge, Card, CardBody, Stack } from "react-bootstrap";
 import { Note } from "../../types";
 import styles from "./card.module.css";
+import { useNavigate } from "react-router-dom";
 console.log(styles);
 
 const CostumCard = ({ note }: { note: Note }) => {
+  const navigate = useNavigate();
   return (
-    <Card className={styles.note_card}>
+    <Card
+      onClick={() => navigate(`/note/${note.id}`)}
+      className={styles.note_card}
+    >
       <CardBody>
         <Stack
           className="align-items-center justify-content-between h-100"
