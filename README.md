@@ -25,6 +25,10 @@ Bu proje, React, Vite ve TypeScript kullanılarak oluşturulmuş bir not uygulam
 - **React Select**: ^5.8.0
 - **UUID**: ^10.0.0
 
+## Canlı proje adresi:
+
+https://www.safewebsite.store/
+
 ## Proje Gifi
 
 <img src="screen1.gif" alt="project-gif">
