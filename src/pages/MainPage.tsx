@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import ReactSelect from "react-select";
 import CostumCard from "../components/CostumCard";
 import { useState } from "react";
+import { useDebounce } from "@uidotdev/usehooks";
 
 type Props = {
   notes: Note[];
@@ -21,6 +22,7 @@ type Props = {
 const MainPage = ({ notes, availableTags }: Props) => {
   const [title, setTitle] = useState<string>("");
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
+  const debouncedSearchTerm = useDebounce(title, 500);
   /*
    * 1- Not bşlığı 1. inputta aratılan metni içermelidir.
    *  - Not'un başlığının küçük harfe çevrilmiş hali aratılan metnin
@@ -35,7 +37,8 @@ const MainPage = ({ notes, availableTags }: Props) => {
    */
   const filtredNotes = notes.filter(
     (note) =>
-      note.title.toLowerCase().includes(title.toLowerCase()) &&
+      note.title &&
+      note.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) &&
       selectedTags.every((s_tag) =>
         note.tags.some((note_tag) => note_tag.value === s_tag.value)
       )

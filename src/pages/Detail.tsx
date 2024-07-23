@@ -11,7 +11,7 @@ const Detail = ({ deleteNote }: Props) => {
   const note: Note = useOutletContext();
   console.log(note);
   return (
-    <div className="container py-5 mx-auto">
+    <div className="container py-5 mx-auto ">
       <Row>
         <Col>
           <h1>{note.title}</h1>
@@ -22,7 +22,11 @@ const Detail = ({ deleteNote }: Props) => {
           </Stack>
         </Col>
         <Col>
-          <Stack direction="horizontal" gap={2}>
+          <Stack
+            direction="horizontal"
+            className="flex justify-content-end"
+            gap={2}
+          >
             <Link to={"/"}>
               <Button variant="secondary">Geri</Button>
             </Link>
@@ -30,7 +34,9 @@ const Detail = ({ deleteNote }: Props) => {
               <Button>Düzenle</Button>
             </Link>
 
-            <Button variant="danger">Sil</Button>
+            <Button onClick={() => deleteNote(note.id)} variant="danger">
+              Sil
+            </Button>
           </Stack>
         </Col>
       </Row>

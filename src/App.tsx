@@ -30,6 +30,15 @@ const App = () => {
     setNotes(notes.filter((i) => i.id !== id));
   };
 
+  // not düzenleme fonksiyonu:
+  const updateNote = (id: string, updatedData: NoteData): void => {
+    const updatedArr = notes.map((note) =>
+      note.id === id ? { id, ...updatedData } : note
+    );
+
+    setNotes(updatedArr);
+  };
+
   return (
     <BrowserRouter>
       <Routes>
@@ -50,7 +59,16 @@ const App = () => {
 
         <Route path="/note/:id" element={<Layout notes={notes} />}>
           <Route index element={<Detail deleteNote={deleteNote} />} />
-          <Route path="edit" element={<Edit />} />
+          <Route
+            path="edit"
+            element={
+              <Edit
+                handleSubmit={updateNote}
+                createTag={createTag}
+                availableTags={tags}
+              />
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>
