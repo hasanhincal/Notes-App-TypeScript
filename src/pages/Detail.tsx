@@ -25,7 +25,7 @@ const Detail = ({ deleteNote }: Props) => {
           <Stack
             direction="horizontal"
             className="flex justify-content-end"
-            gap={2}
+            gap={3}
           >
             <Link to={"/"}>
               <Button variant="secondary">Geri</Button>

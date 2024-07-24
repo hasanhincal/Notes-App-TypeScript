@@ -49,7 +49,11 @@ const MainPage = ({ notes, availableTags }: Props) => {
       {/* üst kısım */}
       <Stack direction="horizontal" className="justify-content-between mb-4">
         <div className="d-flex gap-3 align-items-center">
-          <img src="/note_logo.png" alt="logo_png" width={45} />
+          <img
+            src="/note_logo.png"
+            alt="white notbook on red background"
+            width={45}
+          />
           <h1>Notlar</h1>
         </div>
         <Link to={"/new"}>
@@ -60,15 +64,16 @@ const MainPage = ({ notes, availableTags }: Props) => {
       <Form>
         <Row>
           <Col>
-            <Form.Group>
+            <Form.Group controlId="title">
               <FormLabel>Başlığa Göre Ara</FormLabel>
               <FormControl onChange={(e) => setTitle(e.target.value)} />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group>
-              <FormLabel>Etikete Göre Ara</FormLabel>
+              <FormLabel htmlFor="select">Etikete Göre Ara</FormLabel>
               <ReactSelect
+                id="select"
                 onChange={(all_tags) => setSelectedTags(all_tags as Tag[])}
                 className="text-black"
                 options={availableTags}

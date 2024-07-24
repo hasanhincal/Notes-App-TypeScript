@@ -81,7 +81,7 @@ const CostumForm = ({
       <Stack
         direction="horizontal"
         className="justify-content-end mt-4"
-        gap={4}
+        gap={5}
       >
         <Link to={".."}>
           <Button type="button" variant="secondary">
