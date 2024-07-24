@@ -47,7 +47,7 @@ const App = () => {
           path="/"
           element={<MainPage notes={notes} availableTags={tags} />}
         />
-        <Route path="/" element={<Undefined />} />
+
         <Route
           path="/new"
           element={
@@ -72,6 +72,7 @@ const App = () => {
             }
           />
         </Route>
+        <Route path="*" element={<Undefined />} />
       </Routes>
     </BrowserRouter>
   );

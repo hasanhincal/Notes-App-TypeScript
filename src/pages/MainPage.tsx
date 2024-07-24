@@ -53,6 +53,7 @@ const MainPage = ({ notes, availableTags }: Props) => {
             src="/note_logo.png"
             alt="white notbook on red background"
             width={45}
+            height={50}
           />
           <h1>Notlar</h1>
         </div>
@@ -73,7 +74,7 @@ const MainPage = ({ notes, availableTags }: Props) => {
             <Form.Group>
               <FormLabel htmlFor="select">Etikete Göre Ara</FormLabel>
               <ReactSelect
-                id="select"
+                inputId="select"
                 onChange={(all_tags) => setSelectedTags(all_tags as Tag[])}
                 className="text-black"
                 options={availableTags}
