@@ -12,19 +12,11 @@ const Detail = ({ deleteNote }: Props) => {
   console.log(note);
   return (
     <div className="container py-5 mx-auto ">
-      <Row>
-        <Col>
-          <h1>{note.title}</h1>
-          <Stack direction="horizontal" className="flex-wrap" gap={2}>
-            {note.tags?.map((tag) => (
-              <Badge key={tag.value}>{tag.label}</Badge>
-            ))}
-          </Stack>
-        </Col>
+      <Row className="flex flex-column gap-4">
         <Col>
           <Stack
             direction="horizontal"
-            className="flex justify-content-end"
+            className="flex justify-content-end "
             gap={3}
           >
             <Link to={"/"}>
@@ -37,6 +29,14 @@ const Detail = ({ deleteNote }: Props) => {
             <Button onClick={() => deleteNote(note.id)} variant="danger">
               Sil
             </Button>
+          </Stack>
+        </Col>
+        <Col>
+          <h1>{note.title}</h1>
+          <Stack direction="horizontal" className="flex-wrap" gap={2}>
+            {note.tags?.map((tag) => (
+              <Badge key={tag.value}>{tag.label}</Badge>
+            ))}
           </Stack>
         </Col>
       </Row>
