@@ -32,7 +32,7 @@ const Detail = ({ deleteNote }: Props) => {
           </Stack>
         </Col>
         <Col className="pe-3">
-          <h1 className="text-wrap ">{note.title}</h1>
+          <h1 className="text-wrap mb-3">{note.title}</h1>
           <Stack direction="horizontal" className="flex-wrap" gap={2}>
             {note.tags?.map((tag) => (
               <Badge key={tag.value}>{tag.label}</Badge>
