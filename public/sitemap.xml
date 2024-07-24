@@ -1,0 +1,37 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Anasayfa -->
+  <url>
+    <loc>https://www.safewebsite.store/</loc>
+    <lastmod>2024-07-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Yeni Not Ekleme -->
+  <url>
+    <loc>https://www.safewebsite.store/new</loc>
+    <lastmod>2024-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Not Görüntüleme -->
+  <url>
+    <loc>https://www.safewebsite.store/note/{id}</loc>
+    <lastmod>2024-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Not Düzenleme -->
+  <url>
+    <loc>https://www.safewebsite.store/note/{id}/edit</loc>
+    <lastmod>2024-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
