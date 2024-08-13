@@ -27,7 +27,7 @@ Bu proje, React, Vite ve TypeScript kullanılarak oluşturulmuş bir not uygulam
 
 ## Canlı proje adresi:
 
-https://www.safewebsite.store/
+https://notes-app-type-script-beige.vercel.app/
 
 ## Proje Gifi
 
